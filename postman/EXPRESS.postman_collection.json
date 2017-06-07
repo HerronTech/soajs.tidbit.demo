@@ -1,0 +1,51 @@
+{
+	"variables": [],
+	"info": {
+		"name": "EXPRESS",
+		"_postman_id": "119e59c4-051a-cf2e-43cf-201ea410ec05",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get",
+			"request": {
+				"url": "http://dashboard-api.soajs.org/express/tidbit/hello?username=etienne&lastname=daher",
+				"method": "GET",
+				"header": [
+					{
+						"key": "key",
+						"value": "",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Post",
+			"request": {
+				"url": "http://dashboard-api.soajs.org/express/tidbit/hello",
+				"method": "POST",
+				"header": [
+					{
+						"key": "key",
+						"value": "",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

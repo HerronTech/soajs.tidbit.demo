@@ -1,0 +1,51 @@
+{
+	"variables": [],
+	"info": {
+		"name": "JAVA",
+		"_postman_id": "ca7f3393-7cf1-372f-4756-91e73afb86bf",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Post",
+			"request": {
+				"url": "http://dashboard-api.soajs.org/java/tidbit/hello",
+				"method": "POST",
+				"header": [
+					{
+						"key": "key",
+						"value": "",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get",
+			"request": {
+				"url": "http://dashboard-api.soajs.org/java/tidbit/hello?username=etienne&lastname=daher",
+				"method": "GET",
+				"header": [
+					{
+						"key": "key",
+						"value": "",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

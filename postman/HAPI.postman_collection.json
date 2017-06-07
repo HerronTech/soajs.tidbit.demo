@@ -1,0 +1,51 @@
+{
+	"variables": [],
+	"info": {
+		"name": "HAPI",
+		"_postman_id": "c86b8b60-509c-aaf6-e01d-e4d11ca0eb04",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get",
+			"request": {
+				"url": "http://dashboard-api.soajs.org/hapi/tidbit/hello?username=etienne&lastname=daher",
+				"method": "GET",
+				"header": [
+					{
+						"key": "key",
+						"value": "",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Post",
+			"request": {
+				"url": "http://dashboard-api.soajs.org/hapi/tidbit/hello",
+				"method": "POST",
+				"header": [
+					{
+						"key": "key",
+						"value": "",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
