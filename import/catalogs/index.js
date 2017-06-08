@@ -110,6 +110,76 @@ var recipes = [
 		"ts": 1496302762683
 	},
 	{
+		"name": "Dev Nodejs Recipe",
+		"type": "service",
+		"description": "This is a sample nodejs catalog recipe",
+		"recipe": {
+			"deployOptions": {
+				"image": {
+					"prefix": "soajsorg",
+					"name": "soajs",
+					"tag": "latest",
+					"pullPolicy": "IfNotPresent"
+				},
+				"specifyGitConfiguration": true,
+				"restartPolicy": {
+					"condition": "",
+					"maxAttempts": 0
+				},
+				"container": {
+					"network": "",
+					"workingDir": "/opt/soajs/deployer/"
+				},
+				"voluming": {
+					"volumes": [],
+					"volumeMounts": []
+				}
+			},
+			"buildOptions": {
+				"settings": {
+					"accelerateDeployment": true
+				},
+				"env": {
+					"NODE_ENV": {
+						"type": "static",
+						"value": "production"
+					},
+					"SOAJS_GIT_OWNER": {
+						"type": "computed",
+						"value": "$SOAJS_GIT_OWNER"
+					},
+					"SOAJS_GIT_BRANCH": {
+						"type": "computed",
+						"value": "$SOAJS_GIT_BRANCH"
+					},
+					"SOAJS_GIT_COMMIT": {
+						"type": "computed",
+						"value": "$SOAJS_GIT_COMMIT"
+					},
+					"SOAJS_GIT_REPO": {
+						"type": "computed",
+						"value": "$SOAJS_GIT_REPO"
+					},
+					"SOAJS_GIT_TOKEN": {
+						"type": "computed",
+						"value": "$SOAJS_GIT_TOKEN"
+					}
+				},
+				"cmd": {
+					"deploy": {
+						"command": [
+							"bash"
+						],
+						"args": [
+							"-c",
+							"node index.js -T nodejs"
+						]
+					}
+				}
+			}
+		}
+	},
+	{
 		"name": "Dev Service Recipe",
 		"type": "soajs",
 		"subtype": "service",
