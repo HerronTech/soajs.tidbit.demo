@@ -6,7 +6,7 @@ var recipes = [
 		"recipe": {
 			"deployOptions": {
 				"image": {
-					"prefix": "soajsorg",
+					"prefix": "ameerfaraj",
 					"name": "nginx",
 					"tag": "latest",
 					"pullPolicy": "IfNotPresent"
