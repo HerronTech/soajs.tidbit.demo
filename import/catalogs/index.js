@@ -335,6 +335,68 @@ var recipes = [
 		},
 		"v": 1,
 		"ts": 1496302777071
+	},
+	{
+		"name": "DEV Java Recipe",
+		"type": "service",
+		"description": "This is a sample java catalog recipe",
+		"recipe": {
+			"deployOptions": {
+				"image": {
+					"prefix": "soajsorg",
+					"name": "java",
+					"tag": "latest",
+					"pullPolicy": "IfNotPresent"
+				},
+				"specifyGitConfiguration": true,
+				"container": {
+					"workingDir": "/opt/soajs/deployer/"
+				},
+				"voluming": {
+					"volumes": [],
+					"volumeMounts": []
+				}
+			},
+			"buildOptions": {
+				"env": {
+					"SOAJS_GIT_OWNER": {
+						"type": "computed",
+						"value": "$SOAJS_GIT_OWNER"
+					},
+					"SOAJS_GIT_BRANCH": {
+						"type": "computed",
+						"value": "$SOAJS_GIT_BRANCH"
+					},
+					"SOAJS_GIT_COMMIT": {
+						"type": "computed",
+						"value": "$SOAJS_GIT_COMMIT"
+					},
+					"SOAJS_GIT_REPO": {
+						"type": "computed",
+						"value": "$SOAJS_GIT_REPO"
+					},
+					"SOAJS_GIT_TOKEN": {
+						"type": "computed",
+						"value": "$SOAJS_GIT_TOKEN"
+					},
+					"SOAJS_JAVA_APP_PORT": {
+						"type": "computed",
+						"value": "$SOAJS_SRV_PORT"
+					}
+				},
+				"cmd": {
+					"deploy": {
+						"command": [
+							"sh"
+						],
+						"args": [
+							"-c",
+							"node index.js -T java"
+						]
+					}
+				}
+			}
+		}
 	}
 ];
 
