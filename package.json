@@ -1,0 +1,26 @@
+{
+  "name": "soajs.tidbit.demo",
+  "description": "",
+  "version": "0.0.1",
+  "author": {
+    "name": "soajs team",
+    "email": "team@soajs.org"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:soajs/soajs.tidbit.demo.git"
+  },
+  "license" : "Apache-2.0",
+  "engines": {
+    "node": "*"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "devDependencies": {},
+  "dependencies": {
+    "async": "*",
+    "stdio": "*",
+    "soajs": "1.0.*"
+  }
+}

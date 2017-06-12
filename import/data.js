@@ -6,7 +6,7 @@ var keySecurity = "";
 
 function addRecipes(cb){
 	var catalogs = require('./catalogs/');
-	mongo.remove("catalogs", {"name": {"$in": ['Dev Nginx Recipe', 'Dev Service Recipe']}}, function (error) {
+	mongo.remove("catalogs", {"name": {"$in": ['Dev Nginx Recipe', 'Dev Service Recipe', 'Dev Nodejs Recipe', 'DEV Java Recipe']}}, function (error) {
 		if (error) {
 			return cb(error);
 		}
@@ -179,7 +179,9 @@ function modifyDashboardDefaults(cb) {
 					onePackage.acl.dev = {};
 				}
 				
-				onePackage.acl.dev.quickdemo = {"access": false};
+				onePackage.acl.dev.hapi = {"access": false};
+				onePackage.acl.dev.express = {"access": false};
+				onePackage.acl.dev.java = {"access": false};
 				
 				onePackage.acl.dev.urac = {
 					"access": ["owner"],
@@ -230,7 +232,8 @@ function modifyDashboardDefaults(cb) {
 							if (!oneKey.config.dev) {
 								oneKey.config.dev = {};
 							}
-							oneKey.config.dev['demo'] = {"model": "memory"};
+							delete oneKey.config.dev.commonFields['data'];
+							oneKey.config.dev.commonFields['data'] = "Owner Service Config for All.";
 							
 							generateExternalKey({
 								key: oneKey.key,
@@ -255,22 +258,7 @@ function modifyDashboardDefaults(cb) {
 									"env": "DEV"
 								});
 								
-								mongo.remove("dashboard_extKeys", {"env": "DEV", "code": "DBTN"}, function (error) {
-									if (error) {
-										return cb(error);
-									}
-									mongo.insert("dashboard_extKeys", {
-										"env": "DEV",
-										"code": "DBTN",
-										"key": externalKey
-									}, function (error) {
-										if (error) {
-											return cb(error);
-										}
-										
-										storeTenant(dbtnTenant);
-									});
-								});
+								storeTenant(dbtnTenant);
 							});
 						});
 					}
