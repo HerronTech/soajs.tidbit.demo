@@ -232,6 +232,9 @@ function modifyDashboardDefaults(cb) {
 							if (!oneKey.config.dev) {
 								oneKey.config.dev = {};
 							}
+							if(!oneKey.config.dev.commonFields){
+								oneKey.config.dev.commonFields = {};
+							}
 							delete oneKey.config.dev.commonFields['data'];
 							oneKey.config.dev.commonFields['data'] = "Owner Service Config for All.";
 							
