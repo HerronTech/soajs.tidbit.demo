@@ -98,7 +98,7 @@ var lib = {
 			writeStream.end();
 			
 			setTimeout(function () {
-				var execString = "chmod +x dataTmp.js && " + "node " + __dirname + "/dataTmp.js";
+				var execString = "node " + __dirname + "/dataTmp.js";
 				exec(execString, cb);
 				
 			}, 1000);
