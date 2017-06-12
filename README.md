@@ -1,22 +1,15 @@
-# TidBit Demo Configuration
+# TidBit Demo
 
-##### Building the Service
-The following microservice was generated using Swagger Editor in SOAJS Dashboard. However the microservice still needs to be build so that all the folders & files related to the Business Logic get created.
+This repo will prepare the environment for the TIDBIT demo
 
-Follow these steps to build this service:
- - In your terminal, navigate to the folder of this service
- - Run the following commands :
+The TIDBIT demo illustrates how to deploy services on top of SOAJS. To learn more about TIDBIT:
+https://soajsorg.atlassian.net/wiki/display/TID/TIDBIT
+
+##### Install the dependencies and import the database
+
+Follow these steps to run the import script
 ```sh
-$ cd quickdemo
+$ cd import
 $ npm install
-$ grunt build
-```
-The above will install all the dependencies needed for this service then running grunt build will generate all the folders and files that this microservice should dispose of based on the swagger.yml file content.
-
-#### Rebuilding the Service
-If you already built the service and you have updated the swagger.yml file after, then you need to rebuild the service for the changes to take effect.
-Run the following commands :
-```sh
-$ cd quickdemo
-$ grunt rebuild
+$ node .
 ```
