@@ -6,7 +6,11 @@ var keySecurity = "";
 
 function addRecipes(cb){
 	var catalogs = require('./catalogs/');
-	mongo.remove("catalogs", {"name": {"$in": ['Dev Nginx Recipe', 'Dev Service Recipe', 'Dev Nodejs Recipe', 'DEV Java Recipe']}}, function (error) {
+	mongo.remove("catalogs", {
+		"name": {
+			"$in": ['TIDBIT Dev Nginx', 'TIDBIT Nodejs Recipe', 'TIDBIT Dev SOAJS Recipe', 'TIDBIT Java Recipe']
+		}
+	}, function (error) {
 		if (error) {
 			return cb(error);
 		}
@@ -97,8 +101,13 @@ function cloneEnvironment(cb) {
 
 function addProducts(cb) {
 	var products = require('./products/');
-	if (products._id) {
-		products._id = new mongo.ObjectId(products._id);
+	if(Array.isArray(products)){
+		products.forEach(function(oneProduct){
+			oneProduct._id = new mongo.ObjectId();
+		});
+	}
+	else{
+		products._id = new mongo.ObjectId();
 	}
 	
 	mongo.remove("products", {"code": "DEV"}, function (error) {
@@ -122,12 +131,7 @@ function addTenants(cb) {
 	
 	var count = 0;
 	tenants.forEach(function (tenant) {
-		if(tenant._id){
-			tenant._id = mongo.ObjectId(tenant._id);
-		}
-		else{
-			tenant._id = mongo.ObjectId();
-		}
+		tenant._id = new mongo.ObjectId();
 		tenant.applications.forEach(function (oneApp) {
 			oneApp.appId = new mongo.ObjectId(oneApp.appId.toString());
 			
@@ -153,7 +157,7 @@ function addTenants(cb) {
 	});
 	
 	function storeTenants() {
-		var tenantsList = ["DET1", "DET2", "DET3", "DET4","DET5"];
+		var tenantsList = ["TIDBIT1", "TIDBIT2", "TIDBIT3", "TIDBIT4","TIDBIT5"];
 		mongo.remove("tenants", {"code": {"$in": tenantsList}}, function (error) {
 			if (error) {
 				return cb(error);

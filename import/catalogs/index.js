@@ -1,8 +1,8 @@
 var recipes = [
 	{
-		"name": "Dev Nginx Recipe",
+		"name": "TIDBIT Dev Nginx",
 		"type": "nginx",
-		"description": "This is the nginx catalog recipe used to deploy the nginx in the dev environment.",
+		"description": "This recipe is used to deploy the nginx in the dev environment for the TIDBIT demos.",
 		"recipe": {
 			"deployOptions": {
 				"image": {
@@ -110,9 +110,9 @@ var recipes = [
 		"ts": 1496302762683
 	},
 	{
-		"name": "Dev Nodejs Recipe",
+		"name": "TIDBIT Nodejs Recipe",
 		"type": "service",
-		"description": "This is a sample nodejs catalog recipe",
+		"description": "This recipe is used to deploy any NodeJS web server in any environment for the TIDBIT demos.",
 		"recipe": {
 			"deployOptions": {
 				"image": {
@@ -180,10 +180,10 @@ var recipes = [
 		}
 	},
 	{
-		"name": "Dev Service Recipe",
+		"name": "TIDBIT Dev SOAJS Recipe",
 		"type": "soajs",
 		"subtype": "service",
-		"description": "This is the service catalog recipe used to deploy the core services in the dev environment.",
+		"description": "This recipe is used to deploy any SOAJS services in the dev environment for the TIDBIT demos.",
 		"recipe": {
 			"deployOptions": {
 				"image": {
@@ -343,9 +343,9 @@ var recipes = [
 		"ts": 1496302777071
 	},
 	{
-		"name": "DEV Java Recipe",
+		"name": "TIDBIT Java Recipe",
 		"type": "service",
-		"description": "This is a sample java catalog recipe",
+		"description": "This recipe is used to deploy any Java Web Application in any environment for the TIDBIT demos.",
 		"recipe": {
 			"deployOptions": {
 				"image": {

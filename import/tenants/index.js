@@ -1,7 +1,7 @@
 var tenants = [
 	{
 		"type": "client",
-		"code": "DET1",
+		"code": "TIDBIT1",
 		"name": "Demo tenant 1",
 		"description": "This tenant will use package 1 which gives access to all APIs and have service config 1",
 		"oauth": {},
@@ -37,7 +37,7 @@ var tenants = [
 	},
 	{
 		"type": "client",
-		"code": "DET2",
+		"code": "TIDBIT2",
 		"name": "Demo tenant 2",
 		"description": "This tenant will use package 1 which gives access to all APIs and have service config 2",
 		"oauth": {},
@@ -73,7 +73,7 @@ var tenants = [
 	},
 	{
 		"type": "client",
-		"code": "DET3",
+		"code": "TIDBIT3",
 		"name": "Demo tenant 3",
 		"description": "This tenant will use package 2 which gives access to the post API only and have service config 3",
 		"oauth": {},
@@ -109,7 +109,7 @@ var tenants = [
 	},
 	{
 		"type": "client",
-		"code": "DET4",
+		"code": "TIDBIT4",
 		"name": "Demo tenant 4",
 		"description": "This tenant will use package 2 which gives access to the post API only and have service config 4",
 		"oauth": {},
@@ -145,7 +145,7 @@ var tenants = [
 	},
 	{
 		"type": "client",
-		"code": "DET5",
+		"code": "TIDBIT5",
 		"name": "Demo tenant 5",
 		"description": "This tenant will use package 2 which gives access to the post API, however, its acl is overriden and the get API is also available. And it have service config 5",
 		"oauth": {},
