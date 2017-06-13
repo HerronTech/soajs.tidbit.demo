@@ -2,8 +2,8 @@ var tenants = [
 	{
 		"_id": '58bd20bc06f3698ba308dc18',
 		"type": "client",
-		"code": "TIDBIT1",
-		"name": "Demo tenant 1",
+		"code": "TID1",
+		"name": "TIDBIT 1",
 		"description": "This tenant will use package 1 which gives access to all APIs and have service config 1",
 		"oauth": {},
 		"applications": [
@@ -39,8 +39,8 @@ var tenants = [
 	{
 		"_id": '58bd22ef06f3698ba308dc19',
 		"type": "client",
-		"code": "TIDBIT2",
-		"name": "Demo tenant 2",
+		"code": "TID2",
+		"name": "TIDBIT 2",
 		"description": "This tenant will use package 1 which gives access to all APIs and have service config 2",
 		"oauth": {},
 		"applications": [
@@ -76,8 +76,8 @@ var tenants = [
 	{
 		"_id": '58bd234e06f3698ba308dc1a',
 		"type": "client",
-		"code": "TIDBIT3",
-		"name": "Demo tenant 3",
+		"code": "TID3",
+		"name": "TIDBIT 3",
 		"description": "This tenant will use package 2 which gives access to the post API only and have service config 3",
 		"oauth": {},
 		"applications": [
@@ -113,8 +113,8 @@ var tenants = [
 	{
 		"_id": '58bd239506f3698ba308dc1b',
 		"type": "client",
-		"code": "TIDBIT4",
-		"name": "Demo tenant 4",
+		"code": "TID4",
+		"name": "TIDBIT 4",
 		"description": "This tenant will use package 2 which gives access to the post API only and have service config 4",
 		"oauth": {},
 		"applications": [
@@ -150,8 +150,8 @@ var tenants = [
 	{
 		"_id": '58bd23aa06f3698ba308dc1c',
 		"type": "client",
-		"code": "TIDBIT5",
-		"name": "Demo tenant 5",
+		"code": "TID5",
+		"name": "TIDBIT 5",
 		"description": "This tenant will use package 2 which gives access to the post API, however, its acl is overriden and the get API is also available. And it have service config 5",
 		"oauth": {},
 		"applications": [
