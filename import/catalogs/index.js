@@ -1,12 +1,12 @@
 var recipes = [
 	{
-		"name": "Dev Nginx Recipe",
+		"name": "TIDBIT Dev Nginx",
 		"type": "nginx",
-		"description": "This is the nginx catalog recipe used to deploy the nginx in the dev environment.",
+		"description": "This recipe is used to deploy the nginx in the dev environment for the TIDBIT demos.",
 		"recipe": {
 			"deployOptions": {
 				"image": {
-					"prefix": "ameerfaraj",
+					"prefix": "soajsorg",
 					"name": "nginx",
 					"tag": "latest",
 					"pullPolicy": "IfNotPresent"
@@ -110,9 +110,9 @@ var recipes = [
 		"ts": 1496302762683
 	},
 	{
-		"name": "Dev Nodejs Recipe",
+		"name": "TIDBIT Nodejs Recipe",
 		"type": "service",
-		"description": "This is a sample nodejs catalog recipe",
+		"description": "This recipe is used to deploy any NodeJS web server in any environment for the TIDBIT demos.",
 		"recipe": {
 			"deployOptions": {
 				"image": {
@@ -180,10 +180,10 @@ var recipes = [
 		}
 	},
 	{
-		"name": "Dev Service Recipe",
+		"name": "TIDBIT Dev SOAJS Recipe",
 		"type": "soajs",
 		"subtype": "service",
-		"description": "This is the service catalog recipe used to deploy the core services in the dev environment.",
+		"description": "This recipe is used to deploy any SOAJS services in the dev environment for the TIDBIT demos.",
 		"recipe": {
 			"deployOptions": {
 				"image": {
@@ -218,6 +218,12 @@ var recipes = [
 							"Type": "volume",
 							"Source": "soajs_log_volume",
 							"Target": "/var/log/soajs/"
+						},
+						{
+							"Type": "bind",
+							"ReadOnly": true,
+							"Source": "/var/run/docker.sock",
+							"Target": "/var/run/docker.sock"
 						}
 					]
 				}
@@ -335,6 +341,68 @@ var recipes = [
 		},
 		"v": 1,
 		"ts": 1496302777071
+	},
+	{
+		"name": "TIDBIT Java Recipe",
+		"type": "service",
+		"description": "This recipe is used to deploy any Java Web Application in any environment for the TIDBIT demos.",
+		"recipe": {
+			"deployOptions": {
+				"image": {
+					"prefix": "soajsorg",
+					"name": "java",
+					"tag": "latest",
+					"pullPolicy": "IfNotPresent"
+				},
+				"specifyGitConfiguration": true,
+				"container": {
+					"workingDir": "/opt/soajs/deployer/"
+				},
+				"voluming": {
+					"volumes": [],
+					"volumeMounts": []
+				}
+			},
+			"buildOptions": {
+				"env": {
+					"SOAJS_GIT_OWNER": {
+						"type": "computed",
+						"value": "$SOAJS_GIT_OWNER"
+					},
+					"SOAJS_GIT_BRANCH": {
+						"type": "computed",
+						"value": "$SOAJS_GIT_BRANCH"
+					},
+					"SOAJS_GIT_COMMIT": {
+						"type": "computed",
+						"value": "$SOAJS_GIT_COMMIT"
+					},
+					"SOAJS_GIT_REPO": {
+						"type": "computed",
+						"value": "$SOAJS_GIT_REPO"
+					},
+					"SOAJS_GIT_TOKEN": {
+						"type": "computed",
+						"value": "$SOAJS_GIT_TOKEN"
+					},
+					"SOAJS_JAVA_APP_PORT": {
+						"type": "computed",
+						"value": "$SOAJS_SRV_PORT"
+					}
+				},
+				"cmd": {
+					"deploy": {
+						"command": [
+							"sh"
+						],
+						"args": [
+							"-c",
+							"node index.js -T java"
+						]
+					}
+				}
+			}
+		}
 	}
 ];
 

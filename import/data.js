@@ -6,7 +6,11 @@ var keySecurity = "";
 
 function addRecipes(cb){
 	var catalogs = require('./catalogs/');
-	mongo.remove("catalogs", {"name": {"$in": ['Dev Nginx Recipe', 'Dev Service Recipe']}}, function (error) {
+	mongo.remove("catalogs", {
+		"name": {
+			"$in": ['TIDBIT Dev Nginx', 'TIDBIT Nodejs Recipe', 'TIDBIT Dev SOAJS Recipe', 'TIDBIT Java Recipe']
+		}
+	}, function (error) {
 		if (error) {
 			return cb(error);
 		}
@@ -97,8 +101,13 @@ function cloneEnvironment(cb) {
 
 function addProducts(cb) {
 	var products = require('./products/');
-	if (products._id) {
-		products._id = new mongo.ObjectId(products._id);
+	if(Array.isArray(products)){
+		products.forEach(function(oneProduct){
+			oneProduct._id = new mongo.ObjectId();
+		});
+	}
+	else{
+		products._id = new mongo.ObjectId();
 	}
 	
 	mongo.remove("products", {"code": "DEV"}, function (error) {
@@ -122,7 +131,7 @@ function addTenants(cb) {
 	
 	var count = 0;
 	tenants.forEach(function (tenant) {
-		tenant._id = mongo.ObjectId(tenant._id);
+		tenant._id = new mongo.ObjectId();
 		tenant.applications.forEach(function (oneApp) {
 			oneApp.appId = new mongo.ObjectId(oneApp.appId.toString());
 			
@@ -148,7 +157,7 @@ function addTenants(cb) {
 	});
 	
 	function storeTenants() {
-		var tenantsList = ["DET1", "DET2", "DET3", "DET4","DET5"];
+		var tenantsList = ["TIDBIT1", "TIDBIT2", "TIDBIT3", "TIDBIT4","TIDBIT5"];
 		mongo.remove("tenants", {"code": {"$in": tenantsList}}, function (error) {
 			if (error) {
 				return cb(error);
@@ -179,7 +188,9 @@ function modifyDashboardDefaults(cb) {
 					onePackage.acl.dev = {};
 				}
 				
-				onePackage.acl.dev.quickdemo = {"access": false};
+				onePackage.acl.dev.hapi = {"access": false};
+				onePackage.acl.dev.express = {"access": false};
+				onePackage.acl.dev.java = {"access": false};
 				
 				onePackage.acl.dev.urac = {
 					"access": ["owner"],
@@ -230,7 +241,11 @@ function modifyDashboardDefaults(cb) {
 							if (!oneKey.config.dev) {
 								oneKey.config.dev = {};
 							}
-							oneKey.config.dev['demo'] = {"model": "memory"};
+							if(!oneKey.config.dev.commonFields){
+								oneKey.config.dev.commonFields = {};
+							}
+							delete oneKey.config.dev.commonFields['data'];
+							oneKey.config.dev.commonFields['data'] = "Owner Service Config for All.";
 							
 							generateExternalKey({
 								key: oneKey.key,
@@ -255,22 +270,7 @@ function modifyDashboardDefaults(cb) {
 									"env": "DEV"
 								});
 								
-								mongo.remove("dashboard_extKeys", {"env": "DEV", "code": "DBTN"}, function (error) {
-									if (error) {
-										return cb(error);
-									}
-									mongo.insert("dashboard_extKeys", {
-										"env": "DEV",
-										"code": "DBTN",
-										"key": externalKey
-									}, function (error) {
-										if (error) {
-											return cb(error);
-										}
-										
-										storeTenant(dbtnTenant);
-									});
-								});
+								storeTenant(dbtnTenant);
 							});
 						});
 					}
