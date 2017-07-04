@@ -9,7 +9,7 @@ var tenants = [
 		"applications": [
 			{
 				"product": "DEV",
-				"package": "DEV_PACK1",
+				"package": "TidDEV_PACK1",
 				"appId": '58bd240606f3698ba308dc21',
 				"description": null,
 				"_TTL": 21600000,
@@ -46,7 +46,7 @@ var tenants = [
 		"applications": [
 			{
 				"product": "DEV",
-				"package": "DEV_PACK1",
+				"package": "TidDEV_PACK1",
 				"appId": '58bd23fc06f3698ba308dc20',
 				"description": null,
 				"_TTL": 21600000,
@@ -83,7 +83,7 @@ var tenants = [
 		"applications": [
 			{
 				"product": "DEV",
-				"package": "DEV_PACK2",
+				"package": "TidDEV_PACK2",
 				"appId": '58bd23f406f3698ba308dc1f',
 				"description": null,
 				"_TTL": 21600000,
@@ -120,7 +120,7 @@ var tenants = [
 		"applications": [
 			{
 				"product": "DEV",
-				"package": "DEV_PACK2",
+				"package": "TidDEV_PACK2",
 				"appId": '58bd23e806f3698ba308dc1e',
 				"description": null,
 				"_TTL": 21600000,
@@ -157,7 +157,7 @@ var tenants = [
 		"applications": [
 			{
 				"product": "DEV",
-				"package": "DEV_PACK2",
+				"package": "TidDEV_PACK2",
 				"appId": '58bd23dd06f3698ba308dc1d',
 				"description": null,
 				"_TTL": 21600000,
