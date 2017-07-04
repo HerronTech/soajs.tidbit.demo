@@ -1,10 +1,10 @@
 var devProducts = {
-	"code": "TidDEV",
+	"code": "TIDDEV",
 	"name": "TidBit Dev Product",
 	"description": "This is a product for TidBit demo",
 	"packages": [
 		{
-			"code": "TidDEV_PACK1",
+			"code": "TIDDEV_PACK1",
 			"name": "Package 1",
 			"description": "This package is admin. It contains 2 public APIs: get & post for each service (hapi,java & express)",
 			"acl": {
@@ -23,7 +23,7 @@ var devProducts = {
 			"_TTL": 21600000
 		},
 		{
-			"code": "TidDEV_PACK2",
+			"code": "TIDDEV_PACK2",
 			"name": "Package 2",
 			"description": "This package have access to 1 API: post. Get is restricted",
 			"acl": {

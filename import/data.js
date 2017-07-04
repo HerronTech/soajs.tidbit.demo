@@ -110,7 +110,7 @@ function addProducts(cb) {
 		products._id = new mongo.ObjectId();
 	}
 	
-	mongo.remove("products", {"code": "DEV"}, function (error) {
+	mongo.remove("products", {"code": "TIDDEV"}, function (error) {
 		if (error) {
 			return cb(error);
 		}
