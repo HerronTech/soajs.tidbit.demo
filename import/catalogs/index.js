@@ -1,7 +1,8 @@
 var recipes = [
 	{
 		"name": "TIDBIT Dev Nginx",
-		"type": "nginx",
+		"type": "server",
+		"subtype": "nginx",
 		"description": "This recipe is used to deploy the nginx in the dev environment for the TIDBIT demos.",
 		"recipe": {
 			"deployOptions": {
@@ -23,12 +24,12 @@ var recipes = [
 					"failureThreshold": 3
 				},
 				"restartPolicy": {
-					"condition": "",
-					"maxAttempts": 0
+					"condition": "any",
+					"maxAttempts": 5
 				},
 				"container": {
-					"network": "",
-					"workingDir": ""
+					"network": "soajsnet",
+					"workingDir": "/opt/soajs/deployer/"
 				},
 				"voluming": {
 					"volumes": [
@@ -36,6 +37,12 @@ var recipes = [
 							"Type": "volume",
 							"Source": "soajs_log_volume",
 							"Target": "/var/log/soajs/"
+						},
+						{
+							"Type": "bind",
+							"ReadOnly": true,
+							"Source": "/var/run/docker.sock",
+							"Target": "/var/run/docker.sock"
 						}
 					]
 				},
@@ -44,13 +51,15 @@ var recipes = [
 						"name": "http",
 						"target": 80,
 						"isPublished": true,
-						"published": 81
+						"published": 81,
+						"preserveClientIP": true
 					},
 					{
 						"name": "https",
 						"target": 443,
 						"isPublished": true,
-						"published": 444
+						"published": 444,
+						"preserveClientIP": true
 					}
 				]
 			},
@@ -96,22 +105,21 @@ var recipes = [
 				"cmd": {
 					"deploy": {
 						"command": [
-							"bash",
-							"-c"
+							"bash"
 						],
 						"args": [
+							"-c",
 							"node index.js -T nginx"
 						]
 					}
 				}
 			}
-		},
-		"v": 1,
-		"ts": 1496302762683
+		}
 	},
 	{
 		"name": "TIDBIT Nodejs Recipe",
 		"type": "service",
+		"subtype": "nodejs",
 		"description": "This recipe is used to deploy any NodeJS web server in any environment for the TIDBIT demos.",
 		"recipe": {
 			"deployOptions": {
@@ -181,8 +189,8 @@ var recipes = [
 	},
 	{
 		"name": "TIDBIT Dev SOAJS Recipe",
-		"type": "soajs",
-		"subtype": "service",
+		"type": "service",
+		"subtype": "soajs",
 		"description": "This recipe is used to deploy any SOAJS services in the dev environment for the TIDBIT demos.",
 		"recipe": {
 			"deployOptions": {
@@ -205,12 +213,12 @@ var recipes = [
 					"failureThreshold": 3
 				},
 				"restartPolicy": {
-					"condition": "",
-					"maxAttempts": 0
+					"condition": "any",
+					"maxAttempts": 5
 				},
 				"container": {
-					"network": "",
-					"workingDir": ""
+					"network": "soajsnet",
+					"workingDir": "/opt/soajs/deployer/"
 				},
 				"voluming": {
 					"volumes": [
@@ -236,6 +244,10 @@ var recipes = [
 					"NODE_ENV": {
 						"type": "static",
 						"value": "production"
+					},
+					"NODE_TLS_REJECT_UNAUTHORIZED": {
+						"type": "static",
+						"value": "0"
 					},
 					"SOAJS_ENV": {
 						"type": "computed",
@@ -264,6 +276,14 @@ var recipes = [
 					"SOAJS_GC_VERSION": {
 						"type": "computed",
 						"value": "$SOAJS_GC_VERSION"
+					},
+					"SOAJS_GIT_PROVIDER": {
+						"type": "computed",
+						"value": "$SOAJS_GIT_PROVIDER"
+					},
+					"SOAJS_GIT_DOMAIN": {
+						"type": "computed",
+						"value": "$SOAJS_GIT_DOMAIN"
 					},
 					"SOAJS_GIT_OWNER": {
 						"type": "computed",
@@ -329,22 +349,21 @@ var recipes = [
 				"cmd": {
 					"deploy": {
 						"command": [
-							"bash",
-							"-c"
+							"bash"
 						],
 						"args": [
+							"-c",
 							"node index.js -T service"
 						]
 					}
 				}
 			}
-		},
-		"v": 1,
-		"ts": 1496302777071
+		}
 	},
 	{
 		"name": "TIDBIT Java Recipe",
 		"type": "service",
+		"subtype": "java",
 		"description": "This recipe is used to deploy any Java Web Application in any environment for the TIDBIT demos.",
 		"recipe": {
 			"deployOptions": {
