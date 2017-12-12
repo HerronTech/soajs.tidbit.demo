@@ -7,7 +7,7 @@ var tenants = [
 		"oauth": {},
 		"applications": [
 			{
-				"product": "DEV",
+				"product": "TIDDEV",
 				"package": "TIDDEV_PACK1",
 				"appId": '58bd240606f3698ba308dc21',
 				"description": null,
@@ -43,7 +43,7 @@ var tenants = [
 		"oauth": {},
 		"applications": [
 			{
-				"product": "DEV",
+				"product": "TIDDEV",
 				"package": "TIDDEV_PACK1",
 				"appId": '58bd23fc06f3698ba308dc20',
 				"description": null,
@@ -79,7 +79,7 @@ var tenants = [
 		"oauth": {},
 		"applications": [
 			{
-				"product": "DEV",
+				"product": "TIDDEV",
 				"package": "TIDDEV_PACK2",
 				"appId": '58bd23f406f3698ba308dc1f',
 				"description": null,
@@ -115,7 +115,7 @@ var tenants = [
 		"oauth": {},
 		"applications": [
 			{
-				"product": "DEV",
+				"product": "TIDDEV",
 				"package": "TIDDEV_PACK2",
 				"appId": '58bd23e806f3698ba308dc1e',
 				"description": null,
@@ -151,7 +151,7 @@ var tenants = [
 		"oauth": {},
 		"applications": [
 			{
-				"product": "DEV",
+				"product": "TIDDEV",
 				"package": "TIDDEV_PACK2",
 				"appId": '58bd23dd06f3698ba308dc1d',
 				"description": null,
