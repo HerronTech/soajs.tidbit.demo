@@ -21,6 +21,6 @@
   "dependencies": {
     "async": "2.1.4",
     "stdio": "0.2.7",
-    "soajs": "2.0.1"
+    "soajs": "2.4.7"
   }
 }
